@@ -1,0 +1,153 @@
+body{
+    margin: auto;
+    text-align: center;
+}
+
+.login-form, .container{
+    width: 400px;
+    margin: 0 auto;
+    padding: 0px 20px 60px 20px;
+    margin-top: 35px;
+    text-align: left !important;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.12);
+}
+
+.login-form h2{
+    text-align: center;
+    color: midnightblue;
+    font-size: 28px;
+    padding: 30px 0 10px 0;
+}
+
+.login-form input[type="password"],
+.login-form input[type="text"]{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #CED4DA;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.btn-login{
+    width: 100%;
+    padding: 7px;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: large;
+    color: #FFFFFF;
+}
+
+.btn-login:hover, .btn-login:active{
+    color: #FFFFFF;
+    background-color: #1c946c;
+    border-color: #1c946c;
+}
+    
+.btn-login:focus{
+    box-shadow:0 0 0 3px rgba(121, 82, 179, 0.25);
+}
+
+.btn-register{
+    width: 100%;
+    padding: 7px;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: large;
+    color: #FFFFFF;
+    margin-top: 5px;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+}
+
+.btn-register:hover, .btn-register:active{
+    color: #FFFFFF;
+    background-color: #147cec;
+    border-color: #147cec;
+}
+
+.btn-register:focus{
+    box-shadow: 0 0 0 3px #147cec;
+}
+
+.btn-cancel{
+    width: 100%;
+    padding: 7px;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: medium;
+    color: #FFFFFF;
+    margin-top: 10px;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+}
+
+.btn-cancel:hover, .btn-cancel:active{
+    color: #FFFFFF;
+    background-color: #dd5260;
+    border-color: #dd5260;
+}
+
+.btn-cancel:focus{
+    box-shadow: 0 0 0 3px #dd5260;
+}
+
+.btn-save{
+    width: 100%;
+    padding: 7px;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: medium;
+    color: #FFFFFF;
+    margin-top: 10px;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+}
+
+.btn-save:hover, .btn-save:active{
+    color: #FFFFFF;
+    background-color: #1c946c;
+    border-color: #1c946c;
+}
+
+.btn-save:focus{
+    box-shadow: 0 0 0 3px #1c946c;
+}
+
+.register-form{
+    width: 400px;
+    margin: 0 auto;
+    padding: 0px 20px 60px 20px;
+    margin-top: 35px;
+    text-align: left !important;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.12);
+}
+
+.register-form h2{
+    text-align: center;
+    color: midnightblue;
+    font-size: 28px;
+    padding: 30px 0 10px 0;
+}
+
+.register-form input[type="password"],
+.register-form input[type="text"]{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #CED4DA;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}

@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Trámites</title>
+</head>
+<body>
+    <div class="nav-encabezado">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">Municipalidad de Quiulacocha</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/clientes">Clientes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/tramites">Trámites</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/usuarios">Usuarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Cerrar Sesión</a>
+                        </li>
+                        <!--<li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Opciones
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                            </ul>
+                        </li>-->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container">
+        <div class="shadow-lg pb-3 mb-5 bg-body rounded">
+            <h4 class="titulo">Trámites</h4>
+            <form action="/creartramite" method="POST" class="formulario" style="height: 480px;">
+                <div class="col-md-6 labelinput">
+                    <label for="tipo_tramite" class="form-label">Tipo de trámite</label><br>
+                    <select name="" id="" class="custom-select form-control">
+                        <option selected>Seleccionar trámite:</option>
+                        <option value="">Licencia de Edificaciones</option>
+                        <option value="">Licencia de Funcionamiento</option>
+                        <option value="">Matrimonio Civil</option>
+                        <option value="">Procedimiento de Independización</option>
+                        <option value="">Predio</option>
+                        <option value="">Fraccionamiento Tributario</option>
+                    </select>
+                </div>
+                <div class="col-md-6 labelinput">
+                    <label for="descripción" class="form-label">Descripción</label>
+                    <input type="text" name="descripción" id="descripción" class="form-control" required>
+                </div>
+                <div class="col-md-6 labelinput">
+                    <label for="fecha" class="form-label">Fecha</label>
+                    <input type="text" name="fecha" id="fecha" class="form-control" required>
+                </div>
+                <div class="col-md-6 labelinput">
+                    <label for="precio" class="form-label">Precio</label>
+                    <input type="number" name="precio" id="precio" class="form-control" required>
+                </div>
+                <div class="col-md-6 labelinput">
+                    <label for="cliente" class="form-label">Cliente</label>
+                    <input type="text" name="cliente" id="cliente" class="form-control" required>
+                </div>
+                <button type="submit" class="w-50 btn btn-guardar btn-lg"><i class="bi bi-save"></i>Nuevo trámite</button>
+            </form>
+        </div>
+    </div>
+    <div class="tabla">
+        <table id="tablaTramites" class="table mt-4">
+            <thead>
+                <tr>
+                    <th style="display: none;">ID</th>
+                    <th>Tipo de trámite</th>
+                    <th>Descripción</th>
+                    <th>Fecha</th>
+                    <th>Precio</th>
+                    <th>Cliente</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% tramites.forEach((tramite) => { %>
+                    <tr>
+                        <td id="idtramite" style="display: none;"><%= tramite._id %></td>
+                        <td id="tipotramite"><%= tramite.tipo_tramite %></td>
+                        <td id="descripciontramite"><%= tramite.descripcion %></td>
+                        <td id="fechatramite"><%= tramite.fecha %></td>
+                        <td id="preciotramite"><%= tramite.precio %></td>
+                        <td id="clientetramite"><%= tramite.cliente %></td>
+                        <td>
+                            <a type="button" class="btnEditarTramite btn btn-outline-primary bi bi-pencil"></a>
+                            <a href="/eliminartramite/<%= tramite.id %>" class="btn btn-outline-danger bi bi-trash"></a>
+                            <a type="button" class="btnPDF btn btn-outline-success bi bi-file-pdf" href="/layouts"></a>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // var table = document.getElementById('tableID'),
+        // cells = table.getElementsByTagName('td');
+
+        // for (var i = 0, len = cells.length; i < len; i++) {
+        //     cells[i].onclick = function() {
+        //         console.log(this.innerHTML);
+        //     };
+        // }
+
+        const tabla = document.getElementById('tablaTramites')
+        const celda = tabla.getElementsByTagName('td')
+
+        for(var i = 0; i < celda.length; i++){
+            celda[i].onclick = function(){
+                console.log(this.innerHTML)
+                console.log()
+            }
+        }
+
+    </script>
+
+    <!-- Modal para editar datos-->
+    <div id="modalTramite" class="modal fade" tabindex="-1" aria-labelledby="modalTramite" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="exampleModalLabel">Editar Info</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/editartramite" method="POST">
+                        <input type="text" name="idtramite_editar" id="idtramite_editar" hidden>
+                        <div class="mb-3">
+                            <label for="tipo_tramite_editar" class="col-form-label">Tipo de trámite:</label>
+                            <input id="tipo_tramite_editar" name="tipo_tramite_editar" type="text" class="form-control" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="descripción_editar" class="col-form-label">Descripción:</label>
+                            <input id="descripción_editar" name="descripción_editar" type="text" class="form-control" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="fecha_editar" class="col-form-label">Fecha:</label>
+                            <input id="fecha_editar" name="fecha_editar" type="text" class="form-control" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="precio_editar" class="col-form-label">Precio:</label>
+                            <input id="precio_editar" name="precio_editar" type="number" class="form-control" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cliente_editar" class="col-form-label">Cliente:</label>
+                            <input id="cliente_editar" name="cliente_editar" type="text" class="form-control" value="">
+                        </div>
+                </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="js/codetram.js"></script>
+</body>
+</html>

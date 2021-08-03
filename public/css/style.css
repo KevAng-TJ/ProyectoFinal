@@ -1,0 +1,48 @@
+.container{
+    width: 50%;
+    margin: 20px auto;
+}
+
+.container .titulo{
+    text-align: center;
+}
+
+.formulario{
+    width: 100%;
+    height: 730px;
+}
+
+.formulario .labelinput{
+    width: 80%;
+    position: relative;
+    top: 10px;
+    left: 10%;
+    margin-top: 10px;
+}
+
+.tabla{
+    width: 80%;
+    margin: auto;
+}
+
+.btn-guardar{
+    padding: 15px;
+    background-color: #20c997;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: large;
+    color: #ffffff;
+    margin: 20px 10%;
+}
+
+.btn-guardar:hover, .btn-guardar:active{
+    color: #ffffff;
+    background-color: #13795b;
+    border-color: #13795b;
+}
+
+.btn-guardar:focus{
+    box-shadow: 0 0 0 3px rgba(121, 82, 179, 0.25);
+}

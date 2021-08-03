@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <title>PDF</title>
+</head>
+<body>
+    <table width="100%" border="0">
+        <tr>
+            <td align="left" bgcolor="#FFE77B" style="background-color: #fff;">
+                <h2 style="font-weight: 900; color: brown;">Municipalidad de Quiulacocha</h2>
+                <p>Cerro de Pasco<br>
+                http://mddquiulacocha.com | mddq@gmail.com</p>
+            </td>
+        </tr>
+    </table>
+    <h1 style="font-size: 30px; font-weight: 600; color: green; margin-top: 10px;">FACTURA</h1>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td width="30%" align="left" valign="top" bgcolor="#FFE77B" style="background-color: #FFF;">
+                <p>Para:</p>
+                <h3 style="font-weight: 800; color: brown;"></h3>
+            </td>
+            <td width="70%" align="left" valign="top" bgcolor="#FFE77B" style="background-color: #FFF;"></td>
+        </tr>
+        <tr>
+            <td width="30%" align="left" valign="top" bgcolor="#FFE77B" style="background-color: #FFF;">
+                <p>Reportes</p>
+            </td>
+            <td width="70%" align="left" valign="top" bgcolor="#FFE77B" style="background-color: #FFF;"></td>
+        </tr>
+    </table>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td width="40%" align="left" valign="top" bgcolor="#FFE77B" style="background-color: #FFF;">
+                <p>+51 966196466</p>
+                <p>info@gmail.com</p>
+            </td>
+            <td width="30%" align="left" bgcolor="#FFR77B" style="background-color: #FFF;"></td>
+            <td width="40%" align="right" bgcolor="#FFR77B" style="background-color: #FFF;">
+                <h4 style="font-weight: 700; color: #000000;">Fecha: 21-06-2021</h4>
+                <h4 style="font-weight: 700; color: #000000;">FACTURA N°: 1</h4>
+            </td>
+        </tr>
+    </table>
+    <table class="table" border="1" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <th scope="col" style="width: 20%;">Trámite</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each products.prodlist}}
+            <tr>
+                <td width="10%">{{this.tramite}}</td>
+                <td width="10%">{{this.description}}</td>
+                <td width="10%">{{this.fecha}}</td>
+                <td width="10%">S/. {{this.precio}} .00</td>
+                <td width="10%">{{this.cliente}}</td>
+                <td width="5%">{{this.total}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td width="90%" align="right" style="font-size: 25px; font-weight: 700; color: darkred; background-color: #F6F6F6;"">Total</td>
+            <td width="10%" align="right" style="background-color: lightgreen;"><h2 style="font-size: 25px; font-weight: 700; color: #fff;">${{products.subtotal}} </h2></td>
+        </tr>
+    </table>
+</body>
+</html>
